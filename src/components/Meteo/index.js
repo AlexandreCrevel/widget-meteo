@@ -8,7 +8,7 @@ function Meteo({ city, zipcode }) {
     const [ temperature, setTemperature ] = useState(null);
     const [ loading, setLoading ] = useState(true);
     useEffect(() => {
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},fr&appid=63043c612f4378f937d96bf7fecacd7f&units=metric`)
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},fr&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
         .then((res) => {
             console.log(res.data.main.temp)
             setTemperature(res.data.main.temp);
